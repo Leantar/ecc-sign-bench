@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/rand"
 	"crypto/rsa"
+	"crypto/sha256"
 	"testing"
 )
 
@@ -63,8 +64,11 @@ func BenchmarkRSA_PSS_Verify(b *testing.B) {
 	rand.Read(msg)
 
 	sig := RSA_PSS_Sign(*sk, msg[:])
+	hasher := sha256.New()
+	hasher.Write(msg)
+	hash := hasher.Sum(nil)
 
 	for i := 0; i < b.N; i++ {
-		RSA_PSS_Verify(sk.PublicKey, msg[:], sig[:])
+		RSA_PSS_Verify(sk.PublicKey, hash[:], sig[:])
 	}
 }

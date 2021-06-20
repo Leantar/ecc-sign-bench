@@ -21,6 +21,6 @@ func RSA_PSS_Sign(sk rsa.PrivateKey, msg []byte) []byte {
 	return result
 }
 
-func RSA_PSS_Verify(pk rsa.PublicKey, msg, sig []byte) bool {
-	return rsa.VerifyPSS(&pk, crypto.SHA256, msg[:], sig[:], nil) == nil
+func RSA_PSS_Verify(pk rsa.PublicKey, hash, sig []byte) bool {
+	return rsa.VerifyPSS(&pk, crypto.SHA256, hash[:], sig[:], nil) == nil
 }

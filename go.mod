@@ -1,3 +1,3 @@
-module github.com/Leantar/ecc-sign-bench
+module github.com/Leantar/go-sign-bench
 
 go 1.16
