@@ -1,1 +1,1 @@
-# ecc-sign-bench
+# go-sign-bench
