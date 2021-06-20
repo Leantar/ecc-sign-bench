@@ -22,3 +22,5 @@ func ECDSA_Sign(rand io.Reader, sk *ecdsa.PrivateKey ,msg []byte) (*big.Int, *bi
 func ECDSA_Verify(pk *ecdsa.PublicKey, hash []byte, r, s *big.Int) bool {
 	return ecdsa.Verify(pk, hash[:], r, s)
 }
+
+//Mit sha512 austesten
